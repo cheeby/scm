@@ -1,0 +1,53 @@
+= form_for @page do |f|
+  = f.error_messages
+  %fieldset{:style => 'width:75%'}
+    %legend
+      %strong The Basics &mdash; Required
+    %p
+      = f.label :name, "Page name - must be unique"
+      %br
+      = f.text_field :name, class: 'input_box'
+    %p
+      = f.label :parent_id
+      %br
+      =# f.number_field :parent_id
+      = collection_select(:page, :parent_id , @pages, :id, :name, {}, include_blank: true, :class => 'chzn-select')
+    %p
+      = f.label :published, "Published? This box must be checked in order to be publically viewable on the web"
+      
+      \&rarr;
+      = f.check_box :published
+  %fieldset{:style => 'width:75%'}
+    %legend
+      %strong Page Copy 
+    %p
+      = f.label :intro_copy, "Page Intro - Optional"
+      %br
+      = f.cktext_area :intro_copy
+    %p
+      = f.label :main_copy, "Main Copy - Optional but recommended"
+      %br
+      = f.cktext_area :main_copy
+  %fieldset{:style => 'width:75%'}
+    %legend
+      %strong Sidebar Image? (Optional)
+    %p
+      = f.label :sidebar_image_one, raw("Sidebar Image &mdash; will float to the upper right of page")
+      %br
+      = image_tag(@page.sidebar_image_one, width: 450, height: 450) if @page.sidebar_image_one?
+      %br
+      = f.file_field :sidebar_image_one
+    %p
+      = f.label :sidebar_image_one_visible, "Visible?  Check this box if yes!"
+      \&rarr;
+      = f.check_box :sidebar_image_one_visible
+    %p
+      =f.label :sidebar_image_caption, "Image Caption - Optional"
+      %br
+      =f.text_field :sidebar_image_caption, class: 'input_box', size: 75 
+    %p
+      =f.label :sidebar_image_link, "Image link - Optional"
+      %br
+      =f.text_field :sidebar_image_link, class: 'input_box'
+  %p
+    = f.submit

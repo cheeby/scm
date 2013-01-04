@@ -1,0 +1,26 @@
+- title "Employee"
+
+%p
+  %strong Name:
+  = @employee.name
+%p
+  %strong Position:
+  = @employee.position
+%p
+  %strong Bio:
+  =raw @employee.bio
+%p
+  %strong Photo:
+  =image_tag @employee.photo_url if @employee.photo?
+%p
+  %strong Published:
+  = @employee.published
+
+%p
+  = link_to "Edit", edit_employee_path(@employee)
+  |
+  = link_to "Destroy", @employee, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "New Employee", new_employee_path
+  |
+  = link_to "View All", employees_path

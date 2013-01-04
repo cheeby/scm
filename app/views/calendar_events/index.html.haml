@@ -1,0 +1,19 @@
+- title "Calendar Events"
+%table
+  %tr
+    %th Category
+    %th Name
+    %th Description
+    %th Location
+    %th Active
+  - for calendar_events in @calendar_events
+    %tr
+      %td= calendar_events.category_id
+      %td= calendar_events.name
+      %td= calendar_events.description
+      %td= calendar_events.location
+      %td= calendar_events.active
+      %td= link_to "Show", calendar_events
+      %td= link_to "Edit", edit_calendar_events_path(calendar_events)
+      %td= link_to "Destroy", calendar_events, :confirm => 'Are you sure?', :method => :delete
+-#%p= link_to "New Calendar Events", new_calendar_events_path

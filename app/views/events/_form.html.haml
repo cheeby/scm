@@ -1,0 +1,34 @@
+%fieldset{:style => 'width: 80%'}
+  %legend Event Settings
+  = form_for @event do |f|
+    = f.error_messages
+    %p
+      = f.label :category_id
+      %br
+      = collection_select(:event, :category_id , @event_categories, :id, :name, {include_blank: true}, :class => 'chzn-select', :style => "width:150px;" )
+    %p
+      = f.label :name
+      %br
+      = f.text_field :name, class: 'input_box', size: 75
+    %p
+      = f.label :starts_at
+      %br
+      = f.text_field :starts_at, class: 'input_box', size: 35
+    %p
+      = f.label :ends_at
+      %br
+      = f.text_field :ends_at, class: 'input_box', size: 35
+    %p
+      = f.label :description
+      %br
+      = f.cktext_area :description, width: 500
+    %p
+      = f.label :location
+      %br
+      = f.text_field :location, class: 'input_box', size: 75 
+    %p
+      = f.label :active
+      %br
+      = f.check_box :active
+    %p
+      = f.submit

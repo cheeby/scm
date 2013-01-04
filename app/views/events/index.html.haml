@@ -1,0 +1,22 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Events"
+
+  %table
+    %tr
+      %th Category
+      %th Name
+      %th Description
+      %th Location
+      %th Active
+    - for event in @events
+      %tr
+        %td= event.category_id
+        %td= event.name
+        %td= event.description
+        %td= event.location
+        %td= event.active
+        %td= link_to 'Show', event
+        %td= link_to 'Edit', edit_event_path(event)
+        %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+
+  %p= link_to "New Event", new_event_path

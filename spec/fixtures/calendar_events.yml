@@ -1,0 +1,13 @@
+one:
+  category_id: 1
+  name: MyString
+  description: MyText
+  location: MyString
+  active: false
+
+two:
+  category_id: 1
+  name: MyString
+  description: MyText
+  location: MyString
+  active: false

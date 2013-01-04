@@ -1,0 +1,13 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Event Category"
+  %p
+    %strong Name:
+    = @event_category.name
+  %p
+    %strong Active:
+    = @event_category.active
+  %p
+    = link_to "Edit", edit_event_category_path(@event_category)
+    |
+    \#{link_to "Destroy", @event_category, :confirm => 'Are you sure?', :method => :delete} |
+    \#{link_to "View All", event_categories_path}

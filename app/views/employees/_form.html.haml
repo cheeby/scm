@@ -1,0 +1,29 @@
+= form_for @employee do |f|
+  = f.error_messages
+  %fieldset{:style => 'width:75%'}
+    %legend
+      %strong Employee Profile
+    %p
+      = f.label :name, "Full name e.g, Bill Clinton"
+      %br
+      = f.text_field :name, class: 'input_box', size: 75
+    %p
+      = f.label :position, "Position at SCM e.g., Head of School"
+      %br
+      = f.text_field :position, class: 'input_box', size: 75
+    %p
+      = f.label :bio, "Bio - Schooling, experience, points of interest that makes this person tick" 
+      %br
+      = f.cktext_area :bio
+    %p
+      = f.label :photo, "Photo - Optional"
+      %br
+      = f.file_field :photo
+    %p
+      = f.label :published, "Published?"  
+      \&rarr; &nbsp;
+      = f.check_box :published
+      %br
+      %i Must be checked in order to be visible on the Web.
+    %p
+      = f.submit

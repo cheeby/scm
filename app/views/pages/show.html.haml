@@ -1,0 +1,50 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Page"
+
+  %p
+    %strong Name:
+    = @page.name
+  %p
+    %strong Parent:
+    = @page.parent_id
+  %p
+    %strong Intro Copy:
+    =raw @page.intro_copy
+  %p
+    %strong Main Copy:
+    =raw @page.main_copy
+  %p
+    %strong Published:
+    = @page.published
+  %p
+    %strong Sidebar Image:
+    =image_tag @page.sidebar_image_one if @page.sidebar_image_one?
+  %p
+    %strong Sidebar Image Visible:
+    = @page.sidebar_image_one_visible
+  %p
+    %strong Sidebar Image Caption:
+    =raw @page.sidebar_image_caption
+  %p
+    %strong Sidebar Image Link:
+    = @page.sidebar_image_link
+
+  %p
+    = link_to "Edit", edit_page_path(@page)
+    |
+    = link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete
+    |
+    = link_to "View All", pages_path
+    |
+    = link_to "Add new page", new_page_path
+    |
+    =link_to "Back to Website", root_url
+    -#
+      |
+      -if @page.parent_id > 0
+        =link_to "View this page", :controller => @page_parent_controller.slug, :action => 'show', :slug => @page.name
+      -else
+        =link_to "View this page", :controller => @page_parent_controller
+
+
+

@@ -1,0 +1,23 @@
+= form_for @calendar_events do |f|
+  = f.error_messages
+  %p
+    = f.label :category_id
+    %br/
+    = f.number_field :category_id
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :description
+    %br/
+    = f.text_area :description
+  %p
+    = f.label :location
+    %br/
+    = f.text_field :location
+  %p
+    = f.label :active
+    %br/
+    = f.check_box :active
+  %p= f.submit

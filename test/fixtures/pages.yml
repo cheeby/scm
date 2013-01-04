@@ -1,0 +1,17 @@
+one:
+  name: MyString
+  parent_id: 1
+  intro_copy: MyText
+  main_copy: MyText
+  published: false
+  sidebar_image_one: MyString
+  sidebar_image_one_visible: false
+
+two:
+  name: MyString
+  parent_id: 1
+  intro_copy: MyText
+  main_copy: MyText
+  published: false
+  sidebar_image_one: MyString
+  sidebar_image_one_visible: false

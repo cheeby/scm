@@ -1,0 +1,26 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Pages"
+
+  %table
+    %tr
+      %th Name
+      %th Parent
+      %th Image
+      %th Published?
+    - for page in @pages
+      %tr
+        %td= page.name
+        %td= page.parent_id
+        %td= image_tag page.sidebar_image_one_url, height: 100, width: 125 if page.sidebar_image_one?
+        -if page.published == true
+          %td Yes
+        -else
+          %td No
+        %td= link_to 'Show', page
+        %td= link_to 'Edit', edit_page_path(page)
+        %td= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete
+
+  %p
+    =link_to "New Page", new_page_path
+    |
+    =link_to "Back to Website", root_url

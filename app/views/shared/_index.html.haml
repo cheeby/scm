@@ -1,0 +1,35 @@
+-if params[:controller] == 'staff'
+  .intro_copy_solo
+    =raw @content.intro_copy
+    %br
+  .main_copy_solo
+    =raw @content.main_copy
+  =render 'shared/staff'
+-else
+  
+  -if @content.sidebar_image_one_visible == true
+    .intro_copy
+      =raw @content.intro_copy
+      %br
+    .main_copy
+      =raw @content.main_copy
+
+    %section#side_body_content
+      -if @content.sidebar_image_one_visible == true
+        -if @content.sidebar_image_link?
+          .div{:style => 'width:300px;'}
+            =link_to image_tag(@content.sidebar_image_one_url, border:0), @content.sidebar_image_link
+            %br
+            =link_to @content.sidebar_image_caption, @content.sidebar_image_link
+        -else
+          .div{:style => 'width:400px;'}
+            =image_tag @content.sidebar_image_one_url
+            %br
+            =@content.sidebar_image_caption
+  -else 
+    .intro_copy_solo
+      =raw @content.intro_copy
+      %br
+    .main_copy_solo
+      =raw @content.main_copy
+

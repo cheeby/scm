@@ -1,0 +1,14 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Edit Page"
+  = render 'form'
+  %p
+    = link_to "Show", @page
+    |
+    = link_to "View All", pages_path
+    |
+    = link_to "Back to website", root_url
+    -#|
+      -if @page.parent_id > 0
+        =link_to "View this page", :controller => @page_parent_controller.name, :action => 'show', :slug => @page.name
+      -else
+        =link_to "View this page", :controller => @page.name, :action => 'index'

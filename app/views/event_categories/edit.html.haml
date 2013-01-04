@@ -1,0 +1,7 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Edit Event Category"
+  = render 'form'
+  %p
+    = link_to "Show", @event_category
+    |
+    \#{link_to "View All", event_categories_path}

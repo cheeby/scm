@@ -1,0 +1,21 @@
+- title "Calendar Events"
+%p
+  %strong Category:
+  = @calendar_events.category_id
+%p
+  %strong Name:
+  = @calendar_events.name
+%p
+  %strong Description:
+  = @calendar_events.description
+%p
+  %strong Location:
+  = @calendar_events.location
+%p
+  %strong Active:
+  = @calendar_events.active
+%p
+  = link_to "Edit", edit_calendar_events_path(@calendar_events)
+  |
+  \#{link_to "Destroy", @calendar_events, :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", calendar_events_path}

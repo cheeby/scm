@@ -1,0 +1,7 @@
+#employees
+  -@employees.each do |employee|
+    .employee
+      =image_tag employee.photo_url, class: "image-align-#{cycle("left", "right")}"
+      %h2=employee.name
+      =raw employee.bio
+      %br

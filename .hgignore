@@ -1,0 +1,21 @@
+syntax: glob
+env.sh
+public/assets
+app/assets/javascripts/routes.js
+tmp/cache/*
+.DS_Store
+*.swp
+bin/*
+syntax: glob
+*.log
+*.sqlite3
+*.orig
+db/schema.rb
+solr/data
+tmp/pids/*
+fox_apts.sql
+log/*
+tags
+.git
+config/database.yml
+scm_login

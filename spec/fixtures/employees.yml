@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  position: MyString
+  bio: MyText
+  photo: MyString
+  published: false
+
+two:
+  name: MyString
+  position: MyString
+  bio: MyText
+  photo: MyString
+  published: false

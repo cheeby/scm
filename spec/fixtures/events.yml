@@ -1,0 +1,15 @@
+one:
+  category_id: 1
+  name: MyString
+  description: MyText
+  location: MyString
+  active: false
+  slug: MyString
+
+two:
+  category_id: 1
+  name: MyString
+  description: MyText
+  location: MyString
+  active: false
+  slug: MyString

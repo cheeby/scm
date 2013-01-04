@@ -1,0 +1,22 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Employees"
+
+  %table
+    %tr
+      %th Name
+      %th Position
+      %th Bio
+      %th Photo
+      %th Published
+    - for employee in @employees
+      %tr
+        %td= employee.name
+        %td= employee.position
+        %td= employee.bio
+        %td= employee.photo
+        %td= employee.published
+        %td= link_to 'Show', employee
+        %td= link_to 'Edit', edit_employee_path(employee)
+        %td= link_to 'Destroy', employee, :confirm => 'Are you sure?', :method => :delete
+
+  %p= link_to "New Employee", new_employee_path
