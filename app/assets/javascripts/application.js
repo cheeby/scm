@@ -17,6 +17,5 @@
 //= require jquery.ui.datepicker
 //= require pages
 //= require chosen-jquery
-//= require_tree .
 
 
