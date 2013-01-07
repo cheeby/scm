@@ -1,5 +1,5 @@
 class CalendarController < ApplicationController
-  layout 'maria'
+  layout 'calendar'
   def index
     index_content
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
