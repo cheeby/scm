@@ -1,0 +1,20 @@
+-require 'date'
+%p=raw @content.intro_copy
+
+#event_calendar 
+  %span{:style => 'float:right; width:50%; height:50%;'}
+    %span{:id => 'month'} 
+      =@date.strftime('%B %Y')
+      =calendar @date do |date|
+        -#if @events_by_date[date]
+          %strong
+            =link_to(date.day, {clicked_date: date}, {:style => 'color: #2055BA'})
+          =date.day
+        -#else
+        =date.day
+      .calendar
+        =link_to 'Previous', date: @date.prev_month
+        \|
+        =link_to 'Next', date: @date.next_month
+
+
