@@ -1,4 +1,5 @@
 class EventCategoriesController < ApplicationController
+  before_filter :login_required
   def index
     @event_categories = EventCategory.all
   end

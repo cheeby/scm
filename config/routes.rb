@@ -1,9 +1,12 @@
 Scm::Application.routes.draw do
   resources :event_categories
-
   resources :events
-
   resources :calendar_events
+
+  get "calendar/index"
+  get "calendar/show"
+  match 'calendar' => 'calendar#index', :as => :calendar
+  match 'calendar/:clicked_date' => 'calendar#show'
 
   get "staff/index"
   get "staff/show"

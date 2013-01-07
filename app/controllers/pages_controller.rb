@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :login_required
   def index
     @pages = Page.all(conditions: ['id > 0'])
   end

@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_filter :login_required
   def index
     @employees = Employee.all
   end

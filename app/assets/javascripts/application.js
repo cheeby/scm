@@ -11,11 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require ckeditor/init
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.ui.datepicker
 //= require pages
 //= require chosen-jquery
+//= require_tree .
 
 
