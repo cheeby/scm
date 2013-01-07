@@ -9,4 +9,11 @@ class Page < ActiveRecord::Base
   validates_uniqueness_of :name
 
   mount_uploader :sidebar_image_one, SidebarImageOneUploader
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
+
+
+
 end

@@ -2,8 +2,7 @@ class CalendarController < ApplicationController
   layout 'calendar'
   def index
     index_content
-    @date = params[:month] ? Date.parse(params[:month]) : Date.today
-    logger.debug "\n\n\n date is #{@date}\n\n\n"
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def show
