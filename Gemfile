@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.10'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -36,7 +36,7 @@ gem 'hpricot'
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'jquery-ui-rails'
 gem "nifty-generators", :group => :development
-gem "ckeditor", "3.7.1"
+gem "ckeditor", "3.7.2"
 gem "mini_magick"
 
 # To use Jbuilder templates for JSON
