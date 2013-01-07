@@ -7,19 +7,19 @@
         %a{:href => "/about"} About Us
         %ul
           -@about_children.each do |ac|
-            %li{:style => 'width: 250px;background-color:#556A7A;'}
+            %li{:style => 'width: 250px;background-color:#556A7A;margin-top:-2px;'}
               =link_to ac.name, :controller => 'about', :action => 'show', :slug => ac.slug
       %li{:style => 'width: 100px;'}
         %a{:href => "/montessori"} Montessori
         %ul
           -@maria_children.each do |mc|
-            %li{:style => 'width: 250px; background-color:#556A7A;'}
+            %li{:style => 'width: 250px; background-color:#556A7A;margin-top:-2px;'}
               =link_to mc.name, :controller => 'montessori', :action => 'show', :slug => mc.slug
       %li{:style => 'width: 100px;'}
         %a{:href => "/programs"} Programs
         %ul
           -@programs_children.each do |pc|
-            %li{:style => 'width: 250px;background-color:#151B54;'}
+            %li{:style => 'width: 250px;background-color:#151B54;margin-top:-2px;'}
               =link_to pc.name, :controller => 'programs', :action => 'show', :slug => pc.slug
 
       %li{:style => 'width: 100px;'}
@@ -28,7 +28,7 @@
         %a{:href => "/admissions"} Admissions
         %ul
           -@admissions_children.each do |ac|
-            %li{:style => 'width: 250px;background-color:#151B54;'}
+            %li{:style => 'width: 250px;background-color:#151B54;margin-top:-2px;'}
               =link_to ac.name, :controller => 'admissions', :action => 'show', :slug => ac.slug
       %li{:style => 'width: 100px;'}
         %a{:href => "/staff"} Staff
