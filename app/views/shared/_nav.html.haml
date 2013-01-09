@@ -19,7 +19,7 @@
         %a{:href => "/programs"} Programs
         %ul
           -@programs_children.each do |pc|
-            %li{:style => 'width: 250px;background-color:#151B54;margin-top:-2px;'}
+            %li{:style => 'width: 250px;background-color:#556A7A;margin-top:-2px;'}
               =link_to pc.name, :controller => 'programs', :action => 'show', :slug => pc.slug
 
       %li{:style => 'width: 100px;'}
@@ -28,7 +28,7 @@
         %a{:href => "/admissions"} Admissions
         %ul
           -@admissions_children.each do |ac|
-            %li{:style => 'width: 250px;background-color:#151B54;margin-top:-2px;'}
+            %li{:style => 'width: 250px;background-color:#556A7A;margin-top:-2px;'}
               =link_to ac.name, :controller => 'admissions', :action => 'show', :slug => ac.slug
       %li{:style => 'width: 100px;'}
         %a{:href => "/staff"} Staff

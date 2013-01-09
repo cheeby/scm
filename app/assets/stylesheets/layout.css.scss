@@ -162,7 +162,9 @@ body { background-image: url(image_path('bg.jpg'));
       color: #FFFFFF;
     }
     &.selected a, a:hover {
-      background: #151B54;
+      background: #151B54; 
+      /*background: red; */
+      width:100%;
     }
     ul {
       visibility: hidden;

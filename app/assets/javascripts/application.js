@@ -16,6 +16,7 @@
 //= require jquery.ui.datepicker
 //= require pages
 //= require chosen-jquery
+//= require ckeditor/init
 //= require_tree .
 
 

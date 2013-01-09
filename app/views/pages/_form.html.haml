@@ -14,7 +14,6 @@
       = collection_select(:page, :parent_id , @pages, :id, :name, {}, include_blank: true, :class => 'chzn-select')
     %p
       = f.label :published, "Published? This box must be checked in order to be publically viewable on the web"
-      
       \&rarr;
       = f.check_box :published
   %fieldset{:style => 'width:75%'}
@@ -26,7 +25,6 @@
       = f.cktext_area :intro_copy
     %p
       = f.label :main_copy, "Main Copy - Optional but recommended"
-      %br
       = f.cktext_area :main_copy
   %fieldset{:style => 'width:75%'}
     %legend
