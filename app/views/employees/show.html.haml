@@ -4,6 +4,9 @@
   %strong Name:
   = @employee.name
 %p
+  %strong Staff Category:
+  = @employee.staff_category_name
+%p
   %strong Position:
   = @employee.position
 %p
@@ -24,3 +27,5 @@
   = link_to "New Employee", new_employee_path
   |
   = link_to "View All", employees_path
+  |
+  = link_to "Back to website", root_url

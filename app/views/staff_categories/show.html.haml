@@ -1,0 +1,15 @@
+- title "Staff Category"
+
+%p
+  %strong Name:
+  = @staff_category.name
+%p
+  %strong Active:
+  = @staff_category.active
+
+%p
+  = link_to "Edit", edit_staff_category_path(@staff_category)
+  |
+  = link_to "Destroy", @staff_category, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", staff_categories_path

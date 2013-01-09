@@ -1,0 +1,16 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Staff Categories"
+
+  %table
+    %tr
+      %th Name
+      %th Active
+    - for staff_category in @staff_categories
+      %tr
+        %td= staff_category.name
+        %td= staff_category.active
+        %td= link_to 'Show', staff_category
+        %td= link_to 'Edit', edit_staff_category_path(staff_category)
+        %td= link_to 'Destroy', staff_category, :confirm => 'Are you sure?', :method => :delete
+
+  %p= link_to "New Staff Category", new_staff_category_path

@@ -1,0 +1,9 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Edit Staff Category"
+
+  = render 'form'
+
+  %p
+    = link_to "Show", @staff_category
+    |
+    = link_to "View All", staff_categories_path

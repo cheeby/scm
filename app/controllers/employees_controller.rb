@@ -10,6 +10,9 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
+    @staff_categories = StaffCategory.find(:all, :conditions => ['active = true'], :order => 'name')
+    logger.debug "\n\n\n\ncategories: #{@staff_categories}\n\n\n"
+    
   end
 
   def create
@@ -22,6 +25,7 @@ class EmployeesController < ApplicationController
   end
 
   def edit
+    @staff_categories = StaffCategory.find(:all, :conditions => ['active = true'], :order => 'name')
     @employee = Employee.find(params[:id])
   end
 

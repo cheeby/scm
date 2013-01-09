@@ -1,4 +1,6 @@
 Scm::Application.routes.draw do
+  resources :staff_categories
+
   resources :event_categories
   resources :events
   resources :calendar_events

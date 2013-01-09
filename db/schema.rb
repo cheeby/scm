@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104183139) do
+ActiveRecord::Schema.define(:version => 20130109180858) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -19,10 +19,13 @@ ActiveRecord::Schema.define(:version => 20130104183139) do
     t.text     "bio"
     t.string   "photo"
     t.boolean  "published"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "slug"
+    t.string   "staff_category_name"
   end
+
+  add_index "employees", ["staff_category_name"], :name => "index_employees_on_staff_category_name"
 
   create_table "event_categories", :force => true do |t|
     t.string   "name"
@@ -70,6 +73,13 @@ ActiveRecord::Schema.define(:version => 20130104183139) do
     t.text     "sidebar_image_caption"
     t.string   "sidebar_image_link"
     t.string   "slug"
+  end
+
+  create_table "staff_categories", :force => true do |t|
+    t.string   "name"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

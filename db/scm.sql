@@ -41,7 +41,8 @@ CREATE TABLE employees (
     published boolean,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    slug character varying(255)
+    slug character varying(255),
+    staff_category_name character varying(255)
 );
 
 
@@ -273,6 +274,49 @@ CREATE TABLE schema_migrations (
 ALTER TABLE public.schema_migrations OWNER TO maria_montessori;
 
 --
+-- Name: staff_categories; Type: TABLE; Schema: public; Owner: maria_montessori; Tablespace: 
+--
+
+CREATE TABLE staff_categories (
+    id integer NOT NULL,
+    name character varying(255),
+    active boolean,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.staff_categories OWNER TO maria_montessori;
+
+--
+-- Name: staff_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: maria_montessori
+--
+
+CREATE SEQUENCE staff_categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.staff_categories_id_seq OWNER TO maria_montessori;
+
+--
+-- Name: staff_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: maria_montessori
+--
+
+ALTER SEQUENCE staff_categories_id_seq OWNED BY staff_categories.id;
+
+
+--
+-- Name: staff_categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: maria_montessori
+--
+
+SELECT pg_catalog.setval('staff_categories_id_seq', 6, true);
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: maria_montessori; Tablespace: 
 --
 
@@ -356,6 +400,13 @@ ALTER TABLE ONLY pages ALTER COLUMN id SET DEFAULT nextval('pages_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: maria_montessori
 --
 
+ALTER TABLE ONLY staff_categories ALTER COLUMN id SET DEFAULT nextval('staff_categories_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: maria_montessori
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -363,11 +414,11 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 -- Data for Name: employees; Type: TABLE DATA; Schema: public; Owner: maria_montessori
 --
 
-COPY employees (id, name, "position", bio, photo, published, created_at, updated_at, slug) FROM stdin;
-2	Mikki Tuohoy	Toddler Assistant	<p>\r\n\tNeed a bio for poor Mikki</p>\r\n	Mikki_scaled.JPG	t	2013-01-03 21:14:52.048815	2013-01-03 21:37:51.522406	mikki-tuohoy
-3	Carl Banner	Montessori Guide	<p>\r\n\t<span style="color: rgb(31, 73, 125); font-family: Arial; font-size: small; line-height: 17.33333396911621px; text-align: justify;">Carl is now in his 5th year as the elementary teacher at SCMS. Prior to his work here, he taught middle school for one year and he taught high school for three years in rural North Carolina with the Teach For America program. After a year of selling antiques and records, he&nbsp;went on to earn his AMI diploma from the Washington Montessori Institute in Baltimore and a Master&#39;s degree from Loyola College in Baltimore. In his spare time, Carl enjoys spending time with his wife and son, Isaac, as well as reading, going for walks, and collecting records.&nbsp;</span></p>\r\n	Carl_scaled.JPG	t	2013-01-03 21:22:09.647594	2013-01-03 21:37:51.529787	carl-banner
-4	Karing Nial	Montessori Guide — Toddler Room	<p>\r\n\t<span style="color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; line-height: 17.33333396911621px; text-align: center;">Karing has been involved with Montessori education since 1972; first as a volunteer, then as a parent, and now as a teacher.</span><span style="color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; line-height: 17.33333396911621px; text-align: center;">&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; line-height: 17.33333396911621px; text-align: center;">She has been with St. Croix Montessori since its opening in our present location in 1995.</span><span style="color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; line-height: 17.33333396911621px; text-align: center;">&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; line-height: 17.33333396911621px; text-align: center;">She lives on the school property in the farm house and oversees the animal care.</span><span style="color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; line-height: 17.33333396911621px; text-align: center;">&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; line-height: 17.33333396911621px; text-align: center;">Her outside interests include gardening, exercise, music, friends, travel and volunteering on our property as we transition from old farm fields to native habitat and environmental learning center.</span></p>\r\n	Karing_scaled.JPG	t	2013-01-03 21:25:49.667598	2013-01-03 21:37:51.53665	karing-nial
-1	Molly Ramsay	Teacher - Primary West!	<p>\r\n\tMolly grew up in the Stillwater area, she attended St.Catherine&#39;s University and spent her junior year in Avignon, France. &nbsp;She was a member of the French Honor Society, Pi Delta Phi and Phi Beta Kappa. &nbsp;She received her B.A. in French. &nbsp;Molly has been with SCMS since it first opened in 1995. &nbsp;She now resides in Hudson, WI with her husband and (naughty) dog.&nbsp;&nbsp;She enjoys reading, walking, swimming and ice skating, in addition to playing the violin, piano and guitar.</p>\r\n	molly_ramsay.JPG	f	2013-01-03 21:08:19.853695	2013-01-03 22:01:08.325773	molly-ramsay
+COPY employees (id, name, "position", bio, photo, published, created_at, updated_at, slug, staff_category_name) FROM stdin;
+2	Mikki Tuohoy	Toddler Assistant	<p>\r\n\tNeed a bio for poor Mikki</p>\r\n	Mikki_scaled.JPG	t	2013-01-03 21:14:52.048815	2013-01-09 18:48:20.361514	mikki-tuohoy	Toddler
+3	Carl Banner	Montessori Guide	<p>\r\n\tCarl is now in his 5th year as the elementary teacher at SCMS. Prior to his work here, he taught middle school for one year and he taught high school for three years in rural North Carolina with the Teach For America program. After a year of selling antiques and records, he&nbsp;went on to earn his AMI diploma from the Washington Montessori Institute in Baltimore and a Master&#39;s degree from Loyola College in Baltimore. In his spare time, Carl enjoys spending time with his wife and son, Isaac, as well as reading, going for walks, and collecting records.&nbsp;</p>\r\n	Carl_scaled.JPG	t	2013-01-03 21:22:09.647594	2013-01-09 18:22:43.707407	carl-banner	Elementary
+4	Karing Nial	Montessori Guide — Toddler Room	<p>\r\n\tKaring has been involved with Montessori education since 1972; first as a volunteer, then as a parent, and now as a teacher.&nbsp;&nbsp;She has been with St. Croix Montessori since its opening in our present location in 1995.&nbsp;&nbsp;She lives on the school property in the farm house and oversees the animal care.&nbsp;&nbsp;Her outside interests include gardening, exercise, music, friends, travel and volunteering on our property as we transition from old farm fields to native habitat and environmental learning center.</p>\r\n	Karing_scaled.JPG	t	2013-01-03 21:25:49.667598	2013-01-09 18:47:04.204987	karing-nial	Elementary
+1	Molly Ramsay	Teacher - Primary West!	<p>\r\n\tMolly grew up in the Stillwater area, she attended St.Catherine&#39;s University and spent her junior year in Avignon, France. &nbsp;She was a member of the French Honor Society, Pi Delta Phi and Phi Beta Kappa. &nbsp;She received her B.A. in French. &nbsp;Molly has been with SCMS since it first opened in 1995. &nbsp;She now resides in Hudson, WI with her husband and (naughty) dog.&nbsp;&nbsp;She enjoys reading, walking, swimming and ice skating, in addition to playing the violin, piano and guitar.</p>\r\n	molly_ramsay_scaled.JPG	t	2013-01-03 21:08:19.853695	2013-01-09 18:47:42.587646	molly-ramsay	Primary West
 \.
 
 
@@ -454,6 +505,22 @@ COPY schema_migrations (version) FROM stdin;
 20130104174236
 20130104175240
 20130104183139
+20130109180649
+20130109180858
+\.
+
+
+--
+-- Data for Name: staff_categories; Type: TABLE DATA; Schema: public; Owner: maria_montessori
+--
+
+COPY staff_categories (id, name, active, created_at, updated_at) FROM stdin;
+1	Adminsitration	t	2013-01-09 18:15:44.00684	2013-01-09 18:15:44.00684
+2	Toddler	t	2013-01-09 18:16:46.10238	2013-01-09 18:16:46.10238
+3	Primary West	t	2013-01-09 18:16:55.687568	2013-01-09 18:16:55.687568
+4	Primary North	t	2013-01-09 18:17:10.989432	2013-01-09 18:17:10.989432
+5	Elementary	t	2013-01-09 18:17:24.682153	2013-01-09 18:17:24.682153
+6	Support	t	2013-01-09 18:17:38.785921	2013-01-09 18:17:38.785921
 \.
 
 
@@ -507,11 +574,26 @@ ALTER TABLE ONLY pages
 
 
 --
+-- Name: staff_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: maria_montessori; Tablespace: 
+--
+
+ALTER TABLE ONLY staff_categories
+    ADD CONSTRAINT staff_categories_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: maria_montessori; Tablespace: 
 --
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_employees_on_staff_category_name; Type: INDEX; Schema: public; Owner: maria_montessori; Tablespace: 
+--
+
+CREATE INDEX index_employees_on_staff_category_name ON employees USING btree (staff_category_name);
 
 
 --

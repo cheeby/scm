@@ -32,3 +32,7 @@
               =link_to ac.name, :controller => 'admissions', :action => 'show', :slug => ac.slug
       %li{:style => 'width: 100px;'}
         %a{:href => "/staff"} Staff
+        %ul
+          -@staff_categories.each do |sc|
+            %li{:style => 'width: 250px;background-color:#556A7A;margin-top:-2px;'}
+              =link_to sc.name, :controller => 'staff', :action => 'show', :slug => sc.name

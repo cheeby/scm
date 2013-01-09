@@ -8,6 +8,10 @@
       %br
       = f.text_field :name, class: 'input_box', size: 75
     %p
+      = f.label :staff_category_name
+      %br
+      = collection_select(:employee, :staff_category_name , @staff_categories, :name, :name, {}, include_blank: true, :class => 'chzn-select')
+    %p
       = f.label :position, "Position at SCM e.g., Head of School"
       %br
       = f.text_field :position, class: 'input_box', size: 75
