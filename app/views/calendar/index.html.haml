@@ -1,11 +1,25 @@
 %p=raw @content.intro_copy
 %div{:style => 'width:45%; float:left;' 'font-size: 2em; font-family: HelveticaNeue-Light", "Helvet    ica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight:300;'}
-  events
-  %br
-  will go
-  %br
-  here
-  %br
+  -@events.each do |e|
+    %p{:style => 'padding: 30px;'}
+      -if e.ends_at.strftime('%d').to_i > e.starts_at.strftime('%d').to_i
+        -if e.starts_at.strftime('%m').to_i == e.ends_at.strftime('%m').to_i
+          =raw "#{e.starts_at.strftime('%d')}&mdash;#{e.ends_at.strftime('%d %b')}"
+      -elsif e.ends_at.strftime('%Y').to_i > e.starts_at.strftime('%Y').to_i
+        -# event spans from one year to the next
+        =raw "#{e.starts_at.strftime('%d %b')}&mdash;#{e.ends_at.strftime('%d %b')}"
+      -else
+        -#one-day only event
+        =e.starts_at.strftime('%d %b')
+
+      %br
+      %i
+        =link_to e.name, calendar_path(e.slug)
+      -if e.category_id == 1
+        %br
+        %span{:style => 'font-weight:bold; color:red;'}
+          No School
+
 #event_calendar 
   %span{:style => 'float:right; width:50%; height:50%;'}
     %span{:id => 'month'} 

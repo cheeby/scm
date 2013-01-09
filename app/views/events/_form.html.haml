@@ -4,6 +4,9 @@
     = f.error_messages
     %p
       = f.label :category_id
+      \&nbsp;&nbsp;
+      =link_to "Manage Event Categories", event_categories_path
+      %br
       %br
       = collection_select(:event, :category_id , @event_categories, :id, :name, {include_blank: true}, :class => 'chzn-select', :style => "width:150px;" )
     %p
