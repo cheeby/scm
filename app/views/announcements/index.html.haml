@@ -1,0 +1,16 @@
+.div{:style => 'padding:20px 0px 20px 20px;font-family:HelveticaNeue-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;'}
+  - title "Announcements"
+
+  %table
+    %tr
+      %th Message
+      %th Visible
+    - for announcement in @announcements
+      %tr
+        %td= announcement.message
+        %td= announcement.visible
+        %td= link_to 'Show', announcement
+        %td= link_to 'Edit', edit_announcement_path(announcement)
+        %td= link_to 'Destroy', announcement, :confirm => 'Are you sure?', :method => :delete
+
+  %p= link_to "New Announcement", new_announcement_path

@@ -1,9 +1,12 @@
 Scm::Application.routes.draw do
+  resources :announcements
+
   resources :staff_categories
   resources :event_categories
   resources :events
   resources :calendar_events
   resources :calendar
+  match 'announcements/:id/hide', to: 'announcements#hide', as: 'hide_announcement'
 
   get "calendar/index"
   get "calendar/show"

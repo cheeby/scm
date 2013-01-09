@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     @staff_categories = StaffCategory.find(:all, :conditions => ['active = true'], :order => 'name')
 
     current_year
+    announcements
 
   end
   
@@ -27,10 +28,15 @@ class ApplicationController < ActionController::Base
     @staff_categories = StaffCategory.find(:all, :conditions => ['active = true'], :order => 'name')
 
     current_year
+    announcements
   end
 
   def current_year
     now = Time.now
     @year = now.year
+  end
+
+  def announcements
+    @announcements = Announcement.where("visible=true")
   end
 end

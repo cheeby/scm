@@ -1,0 +1,7 @@
+one:
+  message: MyText
+  visible: false
+
+two:
+  message: MyText
+  visible: false

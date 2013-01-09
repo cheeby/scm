@@ -32,6 +32,10 @@
     #main_copy
       %br/
       %section#body_content
+        -@announcements.each do |announcement|
+          =div_for announcement do
+            =raw announcement.message
+            =link_to "hide announcement", hide_announcement_path(announcement), remote:true
         -if @content.parent_id == 0
         -else
           %h1#body_content_title=@content.name.titleize

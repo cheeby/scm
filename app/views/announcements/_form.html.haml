@@ -1,0 +1,14 @@
+= form_for @announcement do |f|
+  = f.error_messages
+  %fieldset{:style => 'width:80%'}
+    %legend Site-wide announcement
+    %p
+      = f.label :message
+      %br
+      = f.cktext_area :message
+    %p
+      = f.label :visible
+      %br
+      = f.check_box :visible
+    %p
+      = f.submit
