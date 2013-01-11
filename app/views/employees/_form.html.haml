@@ -22,6 +22,8 @@
     %p
       = f.label :photo, "Photo - Optional"
       %br
+      =image_tag @employee.photo_url if @employee.photo?
+      %br
       = f.file_field :photo
     %p
       = f.label :published, "Published?"  
